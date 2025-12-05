@@ -1,0 +1,66 @@
+/* ---Global style for the Finance Calculator app--- */
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--pico-muted-border-color);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+  background: var(--pico-card-background-color, var(--pico-background-color));
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.result-good {
+  color: var(--pico-color-success);
+  font-weight: 600;
+}
+
+.result-bad {
+  color: var(--pico-color-danger);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+}
+
+/* Chart styles */
+.chart {
+  margin-top: 1rem;
+}
+
+.chart-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.chart-label {
+  width: 90px;
+  font-size: 0.9rem;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  background: var(--pico-muted-border-color);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--pico-primary);
+}
