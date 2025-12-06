@@ -1,13 +1,13 @@
 from dataclasses import dataclass
 from fasthtml.common import *
 
-# ---------- Create app, serve static, link external CSS ----------
+# Create app, serve static, link external CSS 
 app, rt = fast_app(
     static_dir="static",
     hdrs=(Link(rel="stylesheet", href="/static/styles.css"),)
 )
 
-# ---------- Data model ----------
+# Data model 
 @dataclass
 class FinanceInput:
     housing_status: str
@@ -21,7 +21,7 @@ class FinanceInput:
     show_annual: str = ""             # checkbox; non-empty if checked
 
 
-# ---------- Validation ----------
+#  Validation 
 def validate(finance: FinanceInput):
     errors = []
     if finance.housing_payment < 0:
@@ -39,7 +39,7 @@ def validate(finance: FinanceInput):
     return errors
 
 
-# ---------- Recommended biweekly logic ----------
+# Recommended biweekly logic 
 def analyze_finance(data: FinanceInput):
     total_debt = (
         data.housing_payment
@@ -109,7 +109,7 @@ def analyze_finance(data: FinanceInput):
     }
 
 
-# ---------- Advice generation ----------
+# Advice generation 
 def advice_messages(result: dict):
     msgs = []
 
@@ -153,7 +153,7 @@ def advice_messages(result: dict):
     return msgs
 
 
-# ---------- Simple horizontal bar chart (per-paycheck) ----------
+#  Simple horizontal bar chart (per-paycheck) 
 def bar_chart(result: dict):
     debt = max(result["total_debt_raw"], 0)
     savings = max(result["savings_raw"], 0)
